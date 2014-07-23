@@ -5,7 +5,7 @@ import os
 import random
 import string
 if int(sys.argv[1]) == 404 or int(sys.argv[1]) == 504:
-  sys.exit("ERROR: Episodes 404 \"Ruff Pigs Out and Has a Whale of a Time\" and 505 \"The Ol' Shell Game\" are disabled.")
+  sys.exit("ERROR: Episodes 404 \"Ruff Pigs Out and Has a Whale of a Time\" and 504 \"The Ol' Shell Game\" are disabled.")
 episodehash={
     101:"37e54b8a98924641a3a84115ab3e8f7f",
     102:"10776ba6b12144e690ccedacc2249d6a",
