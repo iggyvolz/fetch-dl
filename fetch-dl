@@ -109,8 +109,12 @@ episodehash={
 if episodehash is None:
   sys.exit("ERROR: Invalid episode number.  Episode numbers should be in the following format: Season number (1-5) followed by episode number (01-20)")
 randomstring=''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
-os.system("curl -silent http://urs.pbs.org/redirect/"+episodehash+"/ >> /tmp/fetch-dl-"+randomstring)
-f=open('/tmp/fetch-dl-'+randomstring, 'r')
+if os.name == "nt":
+  os.system("curl -silent http://urs.pbs.org/redirect/"+episodehash+"/ >> \%temp\%\\fetch-dl-"+randomstring)
+  f=open('\%temp\%\\fetch-dl-'+randomstring, 'r')
+else
+  os.system("curl -silent http://urs.pbs.org/redirect/"+episodehash+"/ >> /tmp/fetch-dl-"+randomstring)
+  f=open('/tmp/fetch-dl-'+randomstring, 'r')
 url=f.read().split("<a href=\"")[1].split("\"")[0]
 f.close()
 os.system("ffmpeg -i "+url+" "+sys.argv[2])
