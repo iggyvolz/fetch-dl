@@ -112,7 +112,7 @@ randomstring=''.join(random.choice(string.ascii_uppercase + string.digits) for _
 if os.name == "nt":
   os.system("curl -silent http://urs.pbs.org/redirect/"+episodehash+"/ >> \%temp\%\\fetch-dl-"+randomstring)
   f=open('\%temp\%\\fetch-dl-'+randomstring, 'r')
-else
+else:
   os.system("curl -silent http://urs.pbs.org/redirect/"+episodehash+"/ >> /tmp/fetch-dl-"+randomstring)
   f=open('/tmp/fetch-dl-'+randomstring, 'r')
 url=f.read().split("<a href=\"")[1].split("\"")[0]
